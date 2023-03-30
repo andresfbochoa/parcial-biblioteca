@@ -1,0 +1,61 @@
+libro_1 = {
+    "nombre": "Harry potter y la piedra filosofal",
+    "autor": "J.K Rowling",
+    "codigo": "HPJK1997",
+    "año_publicacion": 1997,
+    "precio": 25000,
+    "costo": 9000,
+    "demanda": 200
+}
+
+libro_2 = {
+    "nombre": "Los juegos del hambre",
+    "autor": "Suzanne Collins",
+    "codigo": "JHSC2008",
+    "año_publicacion": 2008,
+    "precio": 27000,
+    "costo": 12000,
+    "demanda": 20
+}
+
+libro_3 = {
+    "nombre": "El Hobbit",
+    "autor": "J.R.R. Tolkien",
+    "codigo": "EHJR1937",
+    "año_publicacion": 1937,
+    "precio": 35000,
+    "costo": 15000,
+    "demanda": 100
+}
+
+libro_4 = {
+    "nombre": "Hamlet",
+    "autor": "William Shakespeare",
+    "codigo": "HWS1589",
+    "año_publicacion": 1589,
+    "precio": 26000,
+    "costo": 13000,
+    "demanda": 20
+}
+
+libros = [libro_1, libro_2, libro_3, libro_4]
+
+mejor_libro = None
+mayor_ganancia = 0
+
+for libro in libros:
+    ganancia = libro["precio"] - libro["costo"]
+    if libro["demanda"] >= 100 and ganancia >= 14000:
+        if libro["demanda"] > 800:
+            precio = libro["precio"] * 1.1
+        else:
+            precio = libro["precio"]
+        ganancia = precio - libro["costo"]
+        if ganancia > mayor_ganancia:
+            mejor_libro = libro
+            mayor_ganancia = ganancia
+
+if mejor_libro:
+    print(f"El mejor libro para ser vendido es {mejor_libro['nombre']} de {mejor_libro['autor']}, con código {mejor_libro['codigo']}, publicado en {mejor_libro['año_publicacion']} y un precio de {precio}.")
+else:
+    print("Ninguno de los libros es la mejor opción para ser vendido.")
